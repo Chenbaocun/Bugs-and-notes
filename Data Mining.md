@@ -4,9 +4,9 @@
 2. **pycharm运行结束后，不会自动结束。**  
 Edit Configurations>>emulate terminal in output console 取消即可  
 3. **由于网速问题带来的pip安装超时问题**  
-	pip --default-timeout=100 install keras
+	pip --default-timeout=100 install keras  
 4. **TensorFlow-gpu安装**  
-查看支持的cuda版本，下载安装相应版本的cuda，下载对应的cuDnn，解压之后复制到cuda安装根目录下。最后pip安装TensorFlow  
+查看支持的cuda版本，下载安装相应版本的cuda，下载对应的cuDnn，解压之后复制到cuda安装根目录下。最后pip安装TensorFlow   
 5. **安装TensorFlow-gpu的时候必须先安装visual C++ 1G左右**   
 Pip国内镜像：
 pip install --index-url https://pypi.douban.com/simple tensorflow
