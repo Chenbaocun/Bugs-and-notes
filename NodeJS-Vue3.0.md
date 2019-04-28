@@ -1,17 +1,17 @@
 # NodeJS,Vue学习笔记
-##环境版本
+## 环境版本
 - NodeJS(v10.15.3)
 - Npm(6.9.0)
 - Vue-Cli(3.5.1)
 
-###bug及学习记录
-1. DOM是指定义访问和操作HYML文档的标准。DOM树下边包含，<html><head><body>等标签。
-2. Nodejs安装：直接在官网下载最新的msi安装即可，安装的过程中会配置environment variables。安装过程附带npm的安装。
-3. Vue最新稳定版的安装：npm install vue
-4. Vue-cli是命令行工具，安装：npm install -g vue-cli     -g是为了在全局中使用vue命令（Vue貌似安装到了c盘）
+### bug及学习记录
+1. DOM是指定义访问和操作HYML文档的标准。DOM树下边包含，<html><head><body>等标签。  
+2. Nodejs安装：直接在官网下载最新的msi安装即可，安装的过程中会配置environment variables。安装过程附带npm的安装。  
+3. Vue最新稳定版的安装：npm install vue  
+4. Vue-cli是命令行工具，安装：npm install -g vue-cli     -g是为了在全局中使用vue命令（Vue貌似安装到了c盘）  
 5. 对于windows的node版本控制，可以使用NVM（Node Version Manager），可以方便地切换NodeJS版本。地址：
-Windows：https://github.com/coreybutler/nvm-windows
-6. 创建vue项目：与Django类似。进入指定目录打开shell，运行命令vue init webpack FirstVue-HelloWorld。
+Windows：https://github.com/coreybutler/nvm-windows  
+6. 创建vue项目：与Django类似。进入指定目录打开shell，运行命令vue init webpack FirstVue-HelloWorld。  
 7. Init vue项目的时候vue cli报错。Failed to download repo vuejs-templates/webpack-simple: tunneling socket could not be established, cause=connect ECONNREFUSED 127.0.0.1:80
 解决方法：npm config set http-proxy null,npm config set proxy null
 8. 设置淘宝镜像：npm install -g cnpm --registry=https://registry.npm.taobao.org
