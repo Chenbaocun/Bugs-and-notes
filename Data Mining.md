@@ -28,6 +28,3 @@ Git pull
 git remote add origin 你的远程库地址  
 11. **使用豆瓣源进行pip安装opnecv**  
 pip  install  -i  https://pypi.doubanio.com/simple/  --trusted-host pypi.doubanio.com  opencv-python  
-12. **将.proto文件，编译成py文件**  
-下载好protoc，建议使用1.4版本，高版本有可能会出现无法编译的情况。直接把压缩包中的exe文件放到要编译的文件夹中，运行命令（把路径下所有的.protos文件转成.py）
-protoc object_detection/protos/*.proto --python_out=.
