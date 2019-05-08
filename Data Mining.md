@@ -1,4 +1,4 @@
-# DataMining相关bugs及技巧记录
+﻿git# DataMining相关bugs及技巧记录
 1.**报错UnicodeDecodeError: 'utf-8' codec can't decode byte 0xba in position 0: invalid start byte**  
 用记事本打开csv，另存为，把编码从A开头改成utf-8即可。爬虫自动生成的csv文件是ANSI编码.  
 2. **pycharm运行结束后，不会自动结束。**  
@@ -17,7 +17,7 @@ pip install --index-url https://pypi.douban.com/simple tensorflow
 Gpu版本无需关系此警告，忽略警告代码：  
 import os 
 	os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'   
-8. 无论是2017版vc Redistributable 还是环境变量都无法成功找到DLL，遂还是先安装1.12.0版本及对应cuda9和cuDnn7，等新的对应关系出来再说。实践证明这个选择是正确的。等在过段时间再升级tensorflow-gpu的更高版本吧。不过现在测试显示速度贼鸡儿慢，与cpu版本速度相差不大。（960m-compute capability=5）  
+8. 无论是2017版vc Redistributable 还是环境变量都无法成功找到DLL，遂还是先安装1.12.0版本及对应cuda9和cuDnn7.4.2.24，等新的对应关系出来再说。实践证明这个选择是正确的。等在过段时间再升级tensorflow-gpu的更高版本吧。不过现在测试显示速度贼鸡儿慢，与cpu版本速度相差不大。（960m-compute capability=5）  
 9. **使用tensorboard显示训练过程。**  
 只有在程序运行的过程中才能进入网站，先在model.fit（）中添加callbacks属性callbacks=[TensorBoard(log_dir='./tmp/log')。路径中不能包含空格，然后再使用cmd进入python\Scripts下执行D:\python\Scripts>tensorboard.exe --logdir=path（log的路径）  
 10. **git命令**  

@@ -14,4 +14,7 @@ pip install git+https://github.com/philferriere/cocoapi.git#subdirectory=PythonA
 protoc object_detection/protos/\*.proto --python_out=.
 6. **faster-Rcnn在本机上进行测试，总会爆内存无法继续**
 可能与faster-Rcnn本身的训练机制有关
-7. 
+7. 修改了config中的eval_config中的num_examples成功提高识别率 ，faster_rcnn_inception_v2_coco在仅仅跑了1k步之后，AP已经达到了0.3以上
+8. 明显faster-Rcnn系列比ssd系列慢一些，但是理论上精度更高。
+9. pytorch用visdom库进行参数的可视化，类似tensorboard
+10. 
