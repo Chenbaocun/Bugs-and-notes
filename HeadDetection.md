@@ -19,3 +19,12 @@ protoc object_detection/protos/\*.proto --python_out=.
 10. ssd系列对于小目标检测精度低，训练图片质量敏感
 11. **利用tensorflow object detection api训练自己的目标检测模型的时候，效果很差**
 不要忘记修改eval下边的num值，默认是8000
+12. 安装bazel（手动安装过于繁琐）
+使用Chocolatey包管理工具进行安装。(跟pip类似)
+- 安装Chocolatey：cmd中：@powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))" && SET PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin
+- 安装bazel：choco install bazel
+13. bazel依赖python2，所以安装的过程中会自动下载py2，并且自动增加环境变量。但是并不能通过python2在命令行中进行操作。
+14. 使用bazel编译toco。
+进入tensorflow/lite 使用bazel build toco 即可。出错，暂时不使用此方法。
+15. 在D:\pycharm\tensorflow\tensorflow\lite\python下边有个tflite_convert.py。可以使用此，代替使用bazel编译。
+tflite_convert  --graph_def_file=saved_model/tflite.pb --output_format=TFLITE   --output_file=./model.tflite --inference_type=FLOAT  --input_arrays=x   --output_arrays=output --input_shapes=1,300,300,1
