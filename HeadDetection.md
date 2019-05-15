@@ -26,5 +26,12 @@ protoc object_detection/protos/\*.proto --python_out=.
 13. bazel依赖python2，所以安装的过程中会自动下载py2，并且自动增加环境变量。但是并不能通过python2在命令行中进行操作。
 14. 使用bazel编译toco。
 进入tensorflow/lite 使用bazel build toco 即可。出错，暂时不使用此方法。
-15. 在D:\pycharm\tensorflow\tensorflow\lite\python下边有个tflite_convert.py。可以使用此，代替使用bazel编译。
-tflite_convert  --graph_def_file=saved_model/tflite.pb --output_format=TFLITE   --output_file=./model.tflite --inference_type=FLOAT  --input_arrays=x   --output_arrays=output --input_shapes=1,300,300,1
+15. 从tf1.9开始，tflite_convert就作为和tensorflow一起安装的二进制工具了。以前版本的转换工具叫toco，测试发现toco在tf1.13仍然存在，但是和tflite_convert选项基本一致，可能已经合并了。
+16. 在D:\pycharm\tensorflow\tensorflow\lite\python下边有个tflite_convert.py。从tensorflow1.9开始，这个脚本开始使用。可以使用此，代替使用bazel编译。
+tflite_convert --graph_def_file=./tflite_graph.pb --output_file=./detection.tflite --input_shapes=1,300,300,3 --input_arrays=normalized_input_image_tensor --output_arrays='TFLite_Detection_PostProcess','TFLite_Detection_PostProcess:1','TFLite_Detection_PostProcess:2','TFLite_Detection_PostProcess:3' --inference_type=QUANTIZED_UINT8 --mean_values=128 --std=128 --change_concat_input_ranges=false --allow_custom_ops
+17. Windows版本的tensorflow无法直接使用toco导致无法convert，在阿里云centos上转换成功。建议出现此问题的话，在服务器上转一个cpu版本的转换一下就行。
+18. 开始训练：--model_dir=training_ssd_fpn --pipeline_config_path=training_ssd_fpn/ssd_mobilenet_v1_fpn_shared_box_predictor_640x640_coco14_sync.config
+19. 导出pb：python export_inference_graph.py --input_type=image_tensor --pipeline_config_path=training/faster_rcnn_inception_v2_coco.config --trained_checkpoint_prefix=training/model.ckpt-10282 --output_directory=saved_model
+20. tflite只能转换ssd，对于faster-rcnn无法进行转换。转换的原理就是把op转换成轻量级的适合移动设备的op。不仅可以减小模型大小，还能加快检测速度。
+21. tensorflow/examples/android中的demo可以直接把pb放到asset下，也可执行，但是速度很慢，没有经过tflite的转换。只能称之为TF Mobile
+22. tensorflow\\lite\\examples\\android下边的例子是经过tflite转化的，速度明显也更快。
