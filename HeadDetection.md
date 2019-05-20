@@ -37,4 +37,4 @@ tflite_convert --graph_def_file=./tflite_graph.pb --output_file=./detection.tfli
 22. tensorflow\\lite\\examples\\android下边的例子是经过tflite转化的，速度明显也更快。
 23. 开始训练：python model_main.py --model_dir=training_facessd --pipeline_config_path=training_facessd/ssd_mobilenet_v1_coco.config --num_eval_steps=2000
 24. 对于ssd目标检测算法，本身对小目标检测存在问题，这也是ssd本身存在的问题。数据增强和一个很好的数据集对于最终模型的精度有明显提升。
-25. TensorFlow object detection Api 中的config，对于小目标，从头重新开始训练反而比在coco等训练结束的ckpt继续训练效果要好。
+25. TensorFlow object detection Api 中的config，对于小目标，从头重新开始训练反而比在coco等数据集上预训练结束的ckpt继续训练效果要好。
