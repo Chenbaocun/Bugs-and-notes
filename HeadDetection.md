@@ -28,7 +28,7 @@ protoc object_detection/protos/\*.proto --python_out=.
 进入tensorflow/lite 使用bazel build toco 即可。出错，暂时不使用此方法。
 15. 从tf1.9开始，tflite_convert就作为和tensorflow一起安装的二进制工具了。以前版本的转换工具叫toco，测试发现toco在tf1.13仍然存在，但是和tflite_convert选项基本一致，可能已经合并了。
 16. 在D:\pycharm\tensorflow\tensorflow\lite\python下边有个tflite_convert.py。从tensorflow1.9开始，这个脚本开始使用。可以使用此，代替使用bazel编译。
-tflite_convert --graph_def_file=./tflite_graph.pb --output_file=./detection.tflite --input_shapes=1,300,300,3 --input_arrays=normalized_input_image_tensor --output_arrays='TFLite_Detection_PostProcess','TFLite_Detection_PostProcess:1','TFLite_Detection_PostProcess:2','TFLite_Detection_PostProcess:3' --inference_type=QUANTIZED_UINT8 --mean_values=128 --std=128 --change_concat_input_ranges=false --allow_custom_ops
+tflite_convert --graph_def_file=./tflite_graph.pb --output_file=./detection.tflite --input_shapes=1,300,300,3 --input_arrays=normalized_input_image_tensor --output_arrays='TFLite_Detection_PostProcess','TFLite_Detection_PostProcess:1','TFLite_Detection_PostProcess:2','TFLite_Detection_PostProcess:3' --inference_type=QUANTIZED_UINT8 --mean_values=128 --std=128 --change_concat_input_ranges=false --allow_custom_ops --default_ranges_min=0 --default_ranges_max=255
 17. Windows版本的tensorflow无法直接使用toco导致无法convert，在阿里云centos上转换成功。建议出现此问题的话，在服务器上装一个cpu版本的转换一下就行。
 18. 开始训练：--model_dir=training_ssd_fpn --pipeline_config_path=training_ssd_fpn/ssd_mobilenet_v1_fpn_shared_box_predictor_640x640_coco14_sync.config --num_train_steps=200000
 19. 导出pb：python export_inference_graph.py --input_type=image_tensor --pipeline_config_path=training/faster_rcnn_inception_v2_coco.config --trained_checkpoint_prefix=training/model.ckpt-10282 --output_directory=saved_model
