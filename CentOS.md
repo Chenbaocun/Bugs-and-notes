@@ -6,3 +6,18 @@
 2. clear（）清屏
 3. rz 上传文件
 4. sz filename 下载文件。
+5. 修改主机名
+hostname Tom
+6. 安装rz
+yum install lrzsz
+7. Centos安装python3
+https://blog.csdn.net/lovefengruoqing/article/details/79284573
+8. Centos 安装mysql
+https://www.cnblogs.com/silentdoer/articles/7258232.html
+9. firewall-cmd --state时报错
+第一步，vim /usr/bin/firewall-cmd， 将#！/usr/bin/python -Es 改为 #！/usr/bin/python2 -Es（到目前为止，上面提到的问题已解决）
+第二步，vim /usr/sbin/firewalld, 将#！/usr/bin/python -Es 改为 #！/usr/bin/python2 -Es (这一步是针对于防火墙报错，进行的修改)
+10. 安装git
+yum install -y git
+git --version
+11.

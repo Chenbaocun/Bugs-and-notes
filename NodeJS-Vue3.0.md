@@ -2,8 +2,8 @@
 ## 环境版本
 - NodeJS(v10.15.3)
 - Npm(6.9.0)
-- Vue-Cli(3.5.1)
-
+- Vue-Cli(3.8.2)
+- Vue(2.6.10)
 ### bug及学习记录
 1. DOM是指定义访问和操作HYML文档的标准。DOM树下边包含，<html><head><body>等标签。  
 2. Nodejs安装：直接在官网下载最新的msi安装即可，安装的过程中会配置environment variables。安装过程附带npm的安装。  
@@ -61,7 +61,7 @@ service httpd start 启动
 service httpd restart 重新启动
 service httpd stop 停止服务
 23. 查看进程:ps -ef.
-结束进程：kill -pid
+结束进程：kill -9 pid
 24. 端口相关
 netstat -nap #会列出所有正在使用的端口及关联的进程/应用
 netstat -lnp|grep 80 查看80端口正在被哪个端口占用
@@ -76,13 +76,25 @@ yum install -y dos2unix
 30. pip show pip 查看pip版本
     python -m pip install --upgrade pip 升级pip
 31. 删除文件夹 rm -rf dirname
-32. 查看已经安装过的npm包：pm list -g --depth 0
+32. 查看已经安装过的npm包：npm list -g --depth 0
 33. 安装完axios之后，无法引用：因为axios并不是vue的一个插件，所以不能用vue.use的方式进行引入。使用vue.prototype.$ajax(axios)引入。使用this.$ajax调用即可。
 34. Axios与django交互的问题。必须在前端将要发送的数据用qs模块进行序列化成类似get形式的字符串。
 35. Django接收到的数据形式是QueryDict的形式。e.g.
 <QueryDict: {'UserNum': ['222222222'], 'PassWord': ['33333333333']}>
 36. 在axios的回调函数中无法选中this的解决方法：添加bind(this)即可
-37. 服务器上的mysql版本太低，将django版本将为2.0
+37. 服务器上的mysql版本太低(5.5)，将django版本将为2.0
 38. 使用清华的镜像 pip install -i https://pypi.tuna.tsinghua.edu.cn/simple django==2.0   2.0版本是2017年底出的
 39. Django甚至无需在logout之后在前端删除cookie，他自己就可以删掉。还是在后端没有自行向前端回复命令命令的情况下。可能在进行auth.logout之后就会自行发送了。就像在login之后，前端就已经存储了一个seesionid。
 40. 现在项目中执行makemigrations会报错，直接在数据库中建表，再反向。
+41. 安装vue cli
+npm install -g @vue/cli  (-g是全局安装参数)
+42. 查看vue cli 版本
+vue --version
+43. 创建vue项目：
+vue ui 使用图形化界面创建vue项目
+vue create hello-world 通过命令行创建vue项目，命令繁琐。
+44. 创建Django项目
+45. 安装element ui ：npm i element-ui -S
+46. 安装axios:npm install axios --save
+47. 安装qs:npm install --save axios vue-axios qs (用来解决vue中post请求以 a=a&b=b 的格式)
+48. 安装vue-router：npm install --save vue-router

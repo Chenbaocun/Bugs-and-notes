@@ -42,4 +42,3 @@ tflite_convert --graph_def_file=./tflite_graph.pb --output_file=./detection.tfli
 在model_main.py 中的config = tf.estimator.RunConfig(model_dir=FLAGS.model_dir,save_checkpoints_steps=1000) 添加save_checkpoints_steps，如果设置了save_checkpoints_steps那么keep_checkpoint_max也一定要设置，否则如果时间内没有保存的话，会被garbage collect了。
 27. export tflite_graph.pb:python export_tflite_ssd_graph.py --pipeline_config_path=training_ssd_fpn/ssd_mobilenet_v1_fpn_shared_box_predictor_640x640_coco14_sync.config --trained_checkpoint_prefix=training_ssd_fpn/model.ckpt-76000 --output_directory=saved_model_ssd_fpn
 28. tflite_convert的过程中会自动进行quantity量化操作。
-29. 在

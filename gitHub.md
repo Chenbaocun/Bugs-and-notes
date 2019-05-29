@@ -153,3 +153,6 @@ git config --global color.ui true
 git add -f App.class
 52. 查看被禁止的规则
 git check-ignore -v App.class
+53. centos 中的rsa公钥存储在/root/.ssh/id_rsa.pub
+53. centos中生成rsa配置ssh
+https://blog.csdn.net/wzq793957419/article/details/68067204
