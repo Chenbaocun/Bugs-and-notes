@@ -156,3 +156,6 @@ git check-ignore -v App.class
 53. centos 中的rsa公钥存储在/root/.ssh/id_rsa.pub
 53. centos中生成rsa配置ssh
 https://blog.csdn.net/wzq793957419/article/details/68067204
+54. 默认无法添加空文件夹到版本库中。可以通过创建一个.gitkeep文件的方式进行占位。
+55. 如何创建.gitkeep文件？
+type NUL > .gitkeep

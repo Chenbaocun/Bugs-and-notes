@@ -7,7 +7,10 @@
 3. rz 上传文件
 4. sz filename 下载文件。
 5. 修改主机名
-hostname Tom
+hostname Tom（临时）
+vi /etc/hostname（直接改文件，永久的，但是也是小写的）
+hostnamectl set-hostname Tom 只能改成小写的。
+vim /etc/hosts里的配置信息 将第二个参数改为Tom
 6. 安装rz
 yum install lrzsz
 7. Centos安装python3
@@ -20,4 +23,10 @@ https://www.cnblogs.com/silentdoer/articles/7258232.html
 10. 安装git
 yum install -y git
 git --version
-11.
+11. 安装protobuf
+12. 安装zip
+yum install -y unzip zip
+13. 删除文件夹
+rm -rf
+14. 新建文件夹
+mkdir flodername
