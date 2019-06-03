@@ -99,3 +99,4 @@ vue create hello-world 通过命令行创建vue项目，命令繁琐。
 47. 安装qs:npm install --save axios vue-axios qs (用来解决vue中post请求以 a=a&b=b 的格式)
 48. 安装vue-router：npm install --save vue-router
 49. before-upload中由于axios的异步，导致无法return false，即使是添加sleep也无法阻止。改用on-change，并且取消自动上传，由于上传成功也会调用onchange，所以添加ready判断。
+50. Django后端向前端传值一定要用simplejson,dumps()然后前端取值之后，后端的list就直接是前端js中的Array，不要用字符串的形式，因为字符串无论怎么转换，字符串的前后两个引号都是无法去掉的。
