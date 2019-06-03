@@ -102,3 +102,4 @@ vue create hello-world 通过命令行创建vue项目，命令繁琐。
 50. Django后端向前端传值一定要用simplejson,dumps()然后前端取值之后，后端的list就直接是前端js中的Array，不要用字符串的形式，因为字符串无论怎么转换，字符串的前后两个引号都是无法去掉的。
 51. 在axios中是如果遇见无法用this进行赋值时，应该在axios中先使用_this=this 在进行赋值等操作，但是一般情况下都是可以用this，在有bind(this)的情况下进行赋值的。
 52. 在JavaScript中的object格式就是json格式，json通过key-value的形式直接调用。
+53. 前后台交互一定要使用json，可以避免许多非必要的麻烦。
