@@ -30,3 +30,4 @@ yum install -y unzip zip
 rm -rf
 14. 新建文件夹
 mkdir flodername
+15. 阿里云的监控插件安装后，会自动运行在进程中。
