@@ -159,3 +159,5 @@ https://blog.csdn.net/wzq793957419/article/details/68067204
 54. 默认无法添加空文件夹到版本库中。可以通过创建一个.gitkeep文件的方式进行占位。
 55. 如何创建.gitkeep文件？
 type NUL > .gitkeep
+56. 为什么我明明每天commit很多次，但是却不记录我的commit？
+打开commit发现，commit是没有头像的，因为本地git的邮箱与github的邮箱不一致。使用git config --global user.name “emails” 进行重新设置。注意一定要有引号。
