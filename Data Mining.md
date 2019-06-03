@@ -28,3 +28,5 @@ Git pull
 git remote add origin 你的远程库地址  
 11. **使用豆瓣源进行pip安装opnecv**  
 pip  install  -i  https://pypi.doubanio.com/simple/  --trusted-host pypi.doubanio.com  opencv-python  
+12. **k匿名对于数据挖掘工作是不是有用？**
+&emsp;对于数据挖掘工作来讲，如果对一个字段进行简单的替换，使其不再具备语义，对于数据挖掘工作来讲是没有丢失可用信息的。因为在数据挖掘工作中，用到的只是这个字段的标识。但是在k匿名工作中，信息丢失是匿名算法的性能评价准则，追求既达到k匿名，又保证足够少的信息丢失，这种信息丢失就会对数据挖掘工作产生影响，但是更能保护用户的的隐私。
