@@ -103,3 +103,7 @@ vue create hello-world 通过命令行创建vue项目，命令繁琐。
 51. 在axios中是如果遇见无法用this进行赋值时，应该在axios中先使用_this=this 在进行赋值等操作，但是一般情况下都是可以用this，在有bind(this)的情况下进行赋值的。
 52. 在JavaScript中的object格式就是json格式，json通过key-value的形式直接调用。
 53. 前后台交互一定要使用json，可以避免许多非必要的麻烦。
+54. js中= == ===的区别？
+一个等号是赋值操作，==先转换类型再比较，===先判断类型，如果不是同一类型直接为false。
+55. v-if条件成立时控件显示，否则不显示。
+56. $refs是无法访问到嵌套ref的，解决办法：使用组件套用。
