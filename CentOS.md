@@ -32,3 +32,7 @@ rm -rf
 mkdir flodername
 15. 阿里云的监控插件安装后，会自动运行在进程中。
 16. centos在cpu占用在100%之后，依旧可以保持高效的响应。
+17. FFmpeg命令：
+ffmpeg -i chenbaocun###14.mp4 -vcodec h264 -s 1280*720 -acodec copy -f mp4 14.mp4 注意-
+18. 使用ffmpy时出现无法转换的问题？
+必须把opencv的输出指针，release掉，否则会因为占用而无法读取文件，进而无法使用FFmpeg进行转换。
