@@ -23,3 +23,5 @@ https://www.cnblogs.com/wwwhza/p/8821117.html
 sha1:dee28657e206:54415732c0f30dbc6aa1eae3cf4d7377474a74b3
 9. 启动jupyter
 jupyter notebook (--allow-root)
+10. 在启动新线程的时候一定不能使用相同的name，它们应该都是unique的，否则会造成上一个线程占用资源不释放而出错的情况。尤其是在线程中又调用自己。
+11. 
