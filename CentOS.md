@@ -36,3 +36,4 @@ mkdir flodername
 ffmpeg -i chenbaocun###14.mp4 -vcodec h264 -s 1280*720 -acodec copy -f mp4 14.mp4 注意-
 18. 使用ffmpy时出现无法转换的问题？
 必须把opencv的输出指针，release掉，否则会因为占用而无法读取文件，进而无法使用FFmpeg进行转换。
+19.
