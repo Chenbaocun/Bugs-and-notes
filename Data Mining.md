@@ -1,4 +1,4 @@
-﻿git# DataMining相关bugs及技巧记录
+﻿# DataMining相关bugs及技巧记录
 1.**报错UnicodeDecodeError: 'utf-8' codec can't decode byte 0xba in position 0: invalid start byte**  
 用记事本打开csv，另存为，把编码从A开头改成utf-8即可。爬虫自动生成的csv文件是ANSI编码.  
 2. **pycharm运行结束后，不会自动结束。**  
