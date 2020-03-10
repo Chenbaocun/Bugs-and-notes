@@ -52,7 +52,38 @@ sudo update-alternaives -config python
 https://blog.csdn.net/sinat_21591675/article/details/82770360
 在Ubuntu上创建.conf文件可以使用touch pip.conf命令
 
-15. **pip 升级之后报错**
+15. **pip 升级之后报错**  
 把/user/bin/pip 文件改为
-from pip import __main__
-sys.exit(__main__._main())
+from pip import __main__  
+sys.exit(__main__._main()_)   
+16. **在pycharm中使用Ctrl+q可以查看源码中函数的docstring**
+17. **如果同级模块无法使用import导入**
+可以右击mark directory as source root
+18. **关于Python文件夹中的pyc文件**
+当Python发现我们在脚本中使用import将某个模块引入时，由于此类模块是实现编好且经过测试的，因此开发者认为此类文件不会经常改变，因此将其使用cpython进行预编译成pyc文件，其中包存储编译后的字节码。
+因此当脚本重新运行时，如果发现了字节码，并且没有对其修改过，就直接调用该pyc文件。如果主动删除，再次运行会重新产生。
+是否修改的验证方式：检查源文件与字节码的时间戳。
+19. **list的sort方法中的key参数**
+'''python3
+# 获取列表的第二个元素
+def takeSecond(elem):
+    return elem[1]
+# 列表
+random = [(2, 2), (3, 4), (4, 1), (1, 3)]
+# 指定第二个元素排序
+random.sort(key=takeSecond)
+# 输出类别
+print '排序列表：', random
+'''
+20. **tuple元组**
+如果在定义元组时，只初始化一个元素，必须使用（1，），否则Python解释器不会认为定义的变量是一个元组，而是int之类
+元组时不能对其自身进行修改的，如果想要修改需要使用切片等操作重新构建一个新元组
+元组只有两个类方法：就是count 和 index
+21. **格式化字符串%后边的元素上是一个元组tuple，可以使用tuple和list等进行替换**
+22. **在字符串中使用双引号**   
+- 单引号定义字符串，内部使用双引号
+- 双引号定义字符串，内部使用转义字符
+23. **字符串匹配**
+str.count()不仅可以在字符串中数元素出现次数，还可以找子字符串
+24. **字符串中使用isspace判断字符串是不是空字符串**
+\r\t\n都认为是空白字符
