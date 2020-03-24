@@ -55,7 +55,7 @@ assetsDir:'static'
 UTF-8是万国码，世界通用的网站编码，GBK是大陆通用的网站编码。
 22.Vue的路由，是在前端网页之间的路由，而后台路由是，用来索引存储在服务器上的各种资源，比如img，js等。
 23. 对于组件化的vue，最重要的也是为了实现单页面，以及，组件的复用，因此通过路由的方式，<router-link>所指向的组件，都会在<router-view>的位置进行替换。
-21. 后台运行nohup python manage.py runserver 0.0.0.0:80 >/dev/null 2>&1&
+21. 后台运行nohup python manage.py runserver 0.0.0.0:8000 >/dev/null 2>&1&
 22. apache启动
 service httpd start 启动
 service httpd restart 重新启动
