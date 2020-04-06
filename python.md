@@ -108,4 +108,28 @@ catch Exception as result:
 31. **如果在import两个不同模块中调用了同名函数，则先引入的会被覆盖，会使用后引入的。可以给先导入的as一个别名即可**
 32. **import的模块搜索路径**
 首先会在当前目录下进行搜索，如果没有就去系统内置模块路径下进行查找。可以使用module.__file__ 属性对模块路径进行查看。
-33. 
+####33. 遍历list并按条件删除的正确姿势
+''' python3
+a= [1,2,3,4]
+for i in a:
+  if i ==1:
+    a.remove(i)
+'''
+- 由于remove会使a在删除元素的位置前移，但i却是累加的，所以，会使得部分元素无法遍历到。
+- 解决思路： 遍历采用复制的list，删除使用原来的list
+- 或者使用b = filter(lambda x: x>5,a)
+- b = [i for i in a if i >5]
+- 或者从后向前进行遍历
+''' python3
+a = [1,2,3,4,5,6,7,8]
+print(id(a))
+for i in range(len(a)-1,-1,-1):
+    if a[i] > 5:
+        pass
+    else:
+        a.remove(a[i])
+print(id(a))
+print('--------------------')
+print(a)
+
+'''
