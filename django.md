@@ -36,3 +36,8 @@ def get_qyeryset(self):
 '''
 - 使得所有调用get_queryset 的方法都 不会查到已经逻辑删除的数据
 - 这种方式只适合逻辑删除这样的操作，其他的操作会产生其他的逻辑后果。
+11. **静态资源**
+- 创建static文件夹
+- 在settings.py中进行注册
+- 在模板中使用:先加载{%load static%},引用时{%static '/css/xxx.css'%}
+- 但是此种方式只能在debug模式下使用，关闭后将无法使用，使用其他的服务器如Nginx对静态资源进行管理。

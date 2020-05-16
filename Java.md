@@ -1,5 +1,6 @@
-# Java学习笔记 2019
-# 视频链接:https://www.bilibili.com/video/BV1A4411K7Gx
+# Java学习笔记 2019-2020
+### 视频链接:https://www.bilibili.com/video/BV1A4411K7Gx
+### 教程连接：https://www.liaoxuefeng.com/
 #### 1. Java中的 +
 - 在java中 str+int -->str，而在Python中str + int会报错，除非自行将int转换成str。所以在输出时可以直接使用str和数值型变量进行拼接
 - 在java中 char + int ,会先将char转成ASCII或者Unicode编码再进行加法
@@ -72,3 +73,47 @@
 - 方法区（Method Area）：存储.class相关信息，包含方法的信息
 - 本地方法栈(Native  Method Stack):与操作系统相关
 - 寄存器（pc register）：与cpu相关
+#### 17.三元运算符
+- b ? x : y //x和y的数据类型必须相同否则会报错。
+- 同时三元运算符及and/or 逻辑运算符是短路计算的，计算到得出结果为止，不会做多余的计算。
+#### 18.switch-break
+- switch 匹配的结果需要是：整型、字符串或者枚举类型。
+- 两个case可以合并在一起
+```java
+case1:
+case2:
+  System.out.println('a')
+  break
+```
+- 在java12开始，switch更加简化了语法可以使用如下的 ->箭头形式。此时不再需要break语句。
+  ```java
+  case "apple" -> System.out.println("Selected apple");
+  case "pear" -> System.out.println("Selected pear");
+  case "mango" -> {
+              System.out.println("Selected mango");
+              System.out.println("Good choice!");
+          }
+  default -> System.out.println("No fruit selected");
+  ```
+- 如果有多个语句并且需要进行值的回调的话，可以使用yield关键字,返回的值可以赋给变量。
+  ```java
+  default -> {
+                  int code = fruit.hashCode();
+                  yield code; // switch语句返回值
+              }
+  ```
+#### 19.遍历数组
+- for(int i = 0;i<ns.length;i++)
+- for(int n : ns )
+- Arrays.toString()
+- Arrays.deepToString() //多维数组的打印
+#### 20.数组的排序
+- 内置了Arrays.sort() // 改变原数组，引用型数组采用变更指针的方式进行排序，基本类型的数组是更改位置上的值来实现真正的排序。
+#### 21.命令行参数
+- psvm的默认参数是 String[] args .所以可以遍历传入的参数来获得传入的参数。
+- 在命令行中传入参数使用 -符号，e.g. -version
+#### 22.java源代码的编译和执行
+- 编译：javac Main.java //.java文件被编译成.class文件
+- 执行：java Main //并不需要写后缀
+#### 23.public关键字
+- 修饰的变量或者类表示可以被外部访问。
