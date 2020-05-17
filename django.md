@@ -30,14 +30,45 @@ company = Company.object.filter(Q('c_girl_num_gt=1') & Q('c_girl_num_lt=10'))
   - 如果自己声明了，或者叫重写了，系统就不会自动生成了
 10. **如果想更改filter的逻辑，可以重写models的manager**
 '''python3
-class MyManager(mmodels.Manager):
+class MyManager(models.Manager):
 def get_qyeryset(self):
-  return super(MyManager, self).get_qyeryset().filter(is_delete = False)
+    return super(MyManager, self).get_qyeryset().filter(is_delete = False)
 '''
 - 使得所有调用get_queryset 的方法都 不会查到已经逻辑删除的数据
 - 这种方式只适合逻辑删除这样的操作，其他的操作会产生其他的逻辑后果。
 11. **静态资源**
 - 创建static文件夹
 - 在settings.py中进行注册
+  - ```python3
+  STATIC_PATH = os.path.join(BASE_DIR, 'static')
+  STATICFILES_DIRS = (
+    STATIC_PATH,
+) ```
 - 在模板中使用:先加载{%load static%},引用时{%static '/css/xxx.css'%}
 - 但是此种方式只能在debug模式下使用，关闭后将无法使用，使用其他的服务器如Nginx对静态资源进行管理。
+12. **状态码（4开头的都是客户端错了）**
+- 200：
+- 404：资源未找到，如果想改写页面，可以在template文件夹下编写404.html即可。Django内部其实都有这样的默认页面，我们只是重写了而已。
+- 403：禁止访问
+- 400：
+- 500：服务器内部错误。
+13. **request.META**
+14. **request**
+- method
+- Get
+  - 类字典结构
+  - 一个key对应多个value
+  - get('name')
+  - getist('name') #获得所有的key='name'对应的值
+- Post
+  - 与Get类似
+- Meta
+  - 客户端的各种信息，ip，又或者主机的用户名。
+- File
+  - 与文件上传相关
+15. **Response**
+- HttpResponse的属性
+  - content：要返回的内容。
+  - status_code：返回状态码（页面就算是正常访问了，也可以返回404，可以一定程度上骗爬虫）。
+  - charset:编码格式，如utf-8
+  - content-type：MIME类型，传输的文件类型，使浏览器可以调用合适的程序打开这些文件。
